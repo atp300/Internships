@@ -12,5 +12,3 @@ datasetout <- dataset[!dataset$order_amount %in% outl$out,]
 
 #Calculate AVO
 AVO <- sum(datasetout[,4])/nrow(datasetout)
-
-
