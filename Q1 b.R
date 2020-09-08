@@ -3,10 +3,10 @@
 # Read the csv file
 dataset <- read.csv("Challenge.csv")
 
-#Calculate the amount payment
+#Calculate the total amount of payment
 sum(dataset[,4])
 
-#Calculate the payment of credit card, debit and cash
+#Calculate the each amount of credit card, debit and cash payment
 credit <- dataset[which(dataset$payment_method=='credit_card'),] 
 debit <- dataset[which(dataset$payment_method=='debit'),] 
 cash <- dataset[which(dataset$payment_method=='cash'),] 
