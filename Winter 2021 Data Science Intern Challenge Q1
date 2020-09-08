@@ -14,12 +14,14 @@ which is relatively affordable.
 
 
 B.	What metric would you report for this dataset?
-For this dataset, I would like use the payment_method data to analysis and report the structure of customer payment. The R code in Q1 b.R shows the process of 
-payment method analysis. The credit card payment is 82.32% of the amount payment; the debit payment is 10.27% of the amount payment, the cash payment is only 
-7.40% of the amount payment.
+Answer:
+For this dataset, I would like to use the payment_method data to analyze and report the structure of customer payment. The R code in Q1 b.R shows the process of 
+payment method analysis. The credit card payment is 82.32% of the total payment; the debit payment is 10.27% of the total payment, the cash payment is only 7.40% 
+of the total payment.
 
 
 
 c.	What is its value?
-Knowing the payment structure of each store may help the merchants understand their customer more. The payment method builds up the customer shopping hobbit and 
-consumption ability. It also helps to plan promotional activities and develop the cooperation with bank and commercial institution.
+Answer:
+Knowing the payment structure of each store may help the merchants understand their customer more. The payment method reflects customers' shopping habits and 
+consumption ability. It also helps to plan promotional activities and develop potential cooperation with banks and commercial institutions in the market.
