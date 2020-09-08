@@ -1,26 +1,32 @@
-Question 2: For this question you’ll need to use SQL. Follow this link to access the data set required for the challenge. Please use queries to answer the following questions. Paste your queries along with your final numerical answers below.
+Question 2: For this question you’ll need to use SQL. Follow this link to access the data set required for the challenge. Please use queries to answer the following questions. 
+Paste your queries along with your final numerical answers below.
+
 
 A.	How many orders were shipped by Speedy Express in total?
 Answer: 
 For Speedy Express, The ShipperID is “1” which can find in Shippers table. Thus, the SQL query is:
+####################################################
 SELECT COUNT(ShipperID) AS SpeedyExpress FROM Orders 
 WHERE ShipperID='1'
-There are 54 orders were shipped by Speedy Express in total.
-
+####################################################
+There are 54 orders were shipped by Speedy Express in total. 
 
 
 B.	What is the last name of the employee with the most orders?
 Answer: 
-To find answer, it needs to count the orders of each employee with the following SQL query:
+The last name of the employee with the most orders is Peacock. To find answer, it needs to count the orders of each employee with the following SQL query:
+#####################################################
 SELECT EmployeeID, COUNT(EmployeeID) FROM Orders
 GROUP BY EmployeeID
-In the Result table, it is clear EmployeeID 4 with the most orders which exactly 40 orders. With checking the Employees table, the last name of EmployeeID 4 is Peacock.
+#####################################################
+In the Result table, it is clear EmployeeID 4 with the most orders which is 40 orders. With checking the Employees table, the last name of EmployeeID 4 is Peacock.
 
 
 
 C.	What product was ordered the most by customers in Germany?
 Answer:
-To find answer, it needs to join OrderDetails, Orders and Customers tables with keys for the query as bellow:
+To find answer, it needs to join OrderDetails, Orders and Customers tables with the keys for the SQL query bellow:
+###################################################################
 SELECT ProductID, COUNT(ProductID), SUM(Quantity) FROM OrderDetails
 INNER JOIN Orders
 ON OrderDetails.OrderID = Orders.OrderID
@@ -28,4 +34,6 @@ INNER JOIN Customers
 ON Customers.CustomerID = Orders.CustomerID
 WHERE Customers.Country="Germany"
 GROUP BY ProductID
-In the Result table, it shows the ProductID 40 is the most ordered product which ordered 4 times in total 160 quantity by the customers in Germany. With checking the Products table, the ProductID 40 is Boston Crab Meat.
+###################################################################
+In the Result table, the ProductID 40 is the most ordered product which ordered 4 times in total 160 quantity by the customers in Germany. With checking the Products 
+table, the ProductID 40 is Boston Crab Meat.
