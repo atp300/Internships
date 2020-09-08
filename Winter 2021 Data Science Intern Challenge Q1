@@ -17,7 +17,7 @@ outl <- boxplot(dataset$order_amount,plot=FALSE)
 datasetout <- dataset[!dataset$order_amount %in% outl$out,]
 #Calculate AVO
 AVO <- sum(datasetout[,4])/nrow(datasetout)
-
+###################################################################
 The recalculate the AOV is $293.72 which is relatively affordable.
 
 
@@ -38,7 +38,7 @@ cash <- dataset[which(dataset$payment_method=='cash'),]
 CreditPayment <- sum(credit[,4])/sum(dataset[,4])*100
 DebitPayment <- sum(debit[,4])/sum(dataset[,4])*100
 CashPayment <- sum(cash[,4])/sum(dataset[,4])*100
-
+########################################################################
 The analysis shows the credit card payment is 82.32% of the amount payment; the debit payment is 10.27% of the amount payment, the cash payment is only 7.40% of the amount payment.
 
 
