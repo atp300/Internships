@@ -19,7 +19,7 @@ The last name of the employee with the most orders is Peacock. To find answer, i
 SELECT EmployeeID, COUNT(EmployeeID) FROM Orders
 GROUP BY EmployeeID
 #####################################################
-In the Result table, it is clear EmployeeID 4 with the most orders which is 40 orders. With checking the Employees table, the last name of EmployeeID 4 is Peacock.
+In the Result table (ResultTable1.png), it is clear EmployeeID 4 with the most orders which is 40 orders. With checking the Employees table, the last name of EmployeeID 4 is Peacock.
 
 
 
@@ -35,5 +35,5 @@ ON Customers.CustomerID = Orders.CustomerID
 WHERE Customers.Country="Germany"
 GROUP BY ProductID
 ###################################################################
-In the Result table, the ProductID 40 is the most ordered product which ordered 4 times in total 160 quantity by the customers in Germany. With checking the Products 
+In the Result table (ResultTable2.png), the ProductID 40 is the most ordered product which ordered 4 times in total 160 quantity by the customers in Germany. With checking the Products 
 table, the ProductID 40 is Boston Crab Meat.
