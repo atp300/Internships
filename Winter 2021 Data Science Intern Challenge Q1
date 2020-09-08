@@ -1,0 +1,47 @@
+Question 1: Given some sample data, write a program to answer the following: click here to access the required data set
+On Shopify, we have exactly 100 sneaker shops, and each of these shops sells only one model of shoe. We want to do some analysis of the average order value (AOV). When we look at orders data over a 30 day window, we naively calculate an AOV of $3145.13. Given that we know these shops are selling sneakers, a relatively affordable item, something seems wrong with our analysis. 
+
+
+
+A.	Think about what could be going wrong with our calculation. Think about a better way to evaluate this data. 
+Answer: 
+It seems the order_amount is imbalanced in this dataset. Compare with most orders, there are few orders with huge order_amount. If it just simply uses total revenue / number of orders to calculate AVO ($3145.13), the AOV will be dominated and miss leaded by these huge order_amount. Thus, I will consider remove outlier (huge order_amount) record from the dataset and then recalculate the AOV with following R Code.
+
+######################### Average Order Value ######################
+# Read the csv file
+dataset <- read.csv("Challenge.csv")
+#Print the structure of the dataframe
+str(dataset)
+#outlier
+outl <- boxplot(dataset$order_amount,plot=FALSE)
+datasetout <- dataset[!dataset$order_amount %in% outl$out,]
+#Calculate AVO
+AVO <- sum(datasetout[,4])/nrow(datasetout)
+
+The recalculate the AOV is $293.72 which is relatively affordable.
+
+
+
+B.	What metric would you report for this dataset?
+For this dataset, I would like use the payment_method data to analysis and report the structure of customer payment. The following R Code show the process of payment method analysis:
+
+######################### Payment Method Analysis ######################
+# Read the csv file
+dataset <- read.csv("Challenge.csv")
+#Calculate the amount payment
+sum(dataset[,4])
+#Calculate the payment of credit card, debit and cash
+credit <- dataset[which(dataset$payment_method=='credit_card'),] 
+debit <- dataset[which(dataset$payment_method=='debit'),] 
+cash <- dataset[which(dataset$payment_method=='cash'),] 
+#Calculate the % of each payment method
+CreditPayment <- sum(credit[,4])/sum(dataset[,4])*100
+DebitPayment <- sum(debit[,4])/sum(dataset[,4])*100
+CashPayment <- sum(cash[,4])/sum(dataset[,4])*100
+
+The analysis shows the credit card payment is 82.32% of the amount payment; the debit payment is 10.27% of the amount payment, the cash payment is only 7.40% of the amount payment.
+
+
+
+c.	What is its value?
+Knowing the payment structure of each store may help the merchants understand their customer more. The payment method builds up the customer shopping hobbit and consumption ability. It also helps to plan promotional activities and develop the cooperation with bank and commercial institution.
